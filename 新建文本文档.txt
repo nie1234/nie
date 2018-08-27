@@ -10,3 +10,5 @@ master 主分支
 第一次提交commit但是不push
 
 再次修改文件，commit这次提交看有几次文本说明
+
+commit 后不push 在服务器中没有这个提交记录
