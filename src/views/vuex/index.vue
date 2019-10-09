@@ -17,12 +17,28 @@ export default {
     //   return this.$store.state.count
     // }
   },
+  created () {
+    let ary = ['n1', 'n2', 'n1']
+    // let x = new Set(ary)
+    // console.log([...x])
+    // console.log(ary)
+    ary.forEach((item, index) => {
+      ary.forEach((item2, index2) => {
+        if (item === item2 && index !== index2) {
+          // console.log('true')
+          return
+        } else {
+          // console.log('false')
+        }
+      })
+    })
+  },
   methods: {
     add () {
       this.count = this.count + 1
       this.$store.dispatch('addcount', this.count)
       // console.log(this.$store.state.count)
-    }
+    },
   }
 }
 </script>

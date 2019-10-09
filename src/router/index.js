@@ -19,6 +19,11 @@ const router = new Router({
       path: '/vuex',
       name: 'vuex',
       component: () => import ('@/views/vuex/index.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import ('@/views/login')
     }
   ]
 })
