@@ -24,6 +24,11 @@ const router = new Router({
       path: '/login',
       name: 'login',
       component: () => import ('@/views/login')
+    },
+    {
+      path: '/video',
+      name: 'video',
+      component: () => import ('@/views/video/index.vue')
     }
   ]
 })
