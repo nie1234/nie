@@ -50,6 +50,7 @@ export default {
     },
     signIn () { // 登录按钮
       this.$refs.formInline.validate((valid) => {
+        // console.log(valid)
         if (valid) {
           this.loading = true
           this.$store.dispatch('login', this.formInline).then((res) => {
@@ -59,6 +60,10 @@ export default {
               this.captchaChange()
               return
             }
+            // console.log(11111)
+            // this.$router.path({
+            //   name: 'index'
+            // })
             window.location.href = '/'
           }).catch(() => {
             this.loading = false

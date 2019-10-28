@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import { login, loginout, userInfo } from '@/api/login'
+import { login, loginOut, userInfo } from '@/api/login'
 import { Message } from 'iview';
 import * as types from './mutation-types'
 
@@ -31,26 +31,21 @@ const user = {
           commit(types.SET_USER_AUTH_RULES, []) // 用户的规则数组
           return res
         } else {
-          Message({
-            message: res.message,
-            type: 'error'
-          })
+          Message.error(res.message)
         }
       })
     },
     // 登出
     loginOut ({ commit, state }) {
-      return loginout(state.userId, state.token).then(res => {
+      return loginOut(state.userId, state.token).then(res => {
+        console.log(res)
         if (res.code === 0) {
           commit(types.SET_USER_ID, '')
           commit(types.SET_USER_TOKEN, '')
           commit(types.SET_USER_AUTH_RULES, [])
           return res
         }
-        Message({
-          message: res.message,
-          type: 'error'
-        })        
+        Message.error(res.message)     
       })
     },
     // 获取用户信息
@@ -64,11 +59,11 @@ const user = {
     },
     // 用户信息校验失败后，登出 清空cookies
     fedLogout ({ commit }) {
-      return new Promise(res => {
+      return new Promise(resolve => {
         commit(types.SET_USER_ID, '')
         commit(types.SET_USER_TOKEN, '')
         commit(types.SET_USER_AUTH_RULES, [])
-        res()
+        resolve()
       })
     }
   },
@@ -76,17 +71,17 @@ const user = {
     [types.SET_USER_ID] (state, userId) {
       state.userId = userId
       if (userId === '') {
-        Cookies.remove(userId)
+        Cookies.remove('user_id')
       } else {
-        Cookies.set(userId)
+        Cookies.set('user_id', userId, { expires: 7 })
       }  
     },
     [types.SET_USER_TOKEN] (state, token) {
       state.token = token
       if (token === '') {
-        Cookies.remove(token)
+        Cookies.remove('token')
       } else {
-        Cookies.set(token)
+        Cookies.set('token', token, { expires: 7 })
       }  
     },
     [types.SET_USER_AUTH_RULES] (state, authRules) {

@@ -11,7 +11,8 @@ const service = axios.create({
 // 请求拦截
 service.interceptors.request.use(
   config => {
-    if (store.getters.userId && store.geeters.token) {
+    console.log(store)
+    if (store.getters.userId && store.getters.token) {
       // 登录后会获得到对应的ID和token 作为头部传递
       config.headers['X-Adminid'] = store.getters.userId
       config.headers['X-Token'] = store.getters.token
