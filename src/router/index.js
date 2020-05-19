@@ -5,6 +5,7 @@ import 'iview/dist/styles/iview.css'
 // import user from '../store/user'
 import store from '../store'
 import VW from './vw'
+import TS from './ts'
 
 Vue.use(Router)
 Vue.use(iView)
@@ -47,6 +48,12 @@ const router = new Router({
       name: 'VW',
       component: () => import('@/vw-views/index'),
       children: VW
+    },
+    {
+      path: '/ts',
+      name: 'TS',
+      component: () => import('@/views/ts-demo/index'),
+      children: TS
     }
   ]
 })

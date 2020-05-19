@@ -19,3 +19,8 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+#清除env的文件
+.env.dev*
+.env.pro*
+api
