@@ -3,9 +3,9 @@ node_modules
 /dist
 
 #清除env的文件
-.env.dev*
-.env.pro*
-api
+.env.development
+.env.production
+/src/api
 
 # local env files
 .env.local
