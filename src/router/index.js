@@ -39,6 +39,11 @@ const router = new Router({
       component: () => import ('@/views/login')
     },
     {
+      path: '/echarts/:id?',
+      name: 'EchartsDemo',
+      component: () => import ('@/views/echarts/index')
+    },
+    {
       path: '/video',
       name: 'video',
       component: () => import ('@/views/video/index.vue')
