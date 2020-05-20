@@ -23,3 +23,6 @@ new Vue({
   router,
   store
 }).$mount('#app')
+
+// Git rebase 测试
+// 测试1
